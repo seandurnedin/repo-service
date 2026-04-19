@@ -1,6 +1,6 @@
 package com.example.repoService.entity;
 
-import com.gymbooking.enums.ProgrammeDifficulty;
+import com.example.repoService.constants.ProgrammeDifficulty;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -74,9 +74,9 @@ public class Programme extends BaseEntity {
     // Users enrolled in this programme
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
-        name = "programme_enrollments",
-        joinColumns = @JoinColumn(name = "programme_id"),
-        inverseJoinColumns = @JoinColumn(name = "user_id")
+            name = "programme_enrollments",
+            joinColumns = @JoinColumn(name = "programme_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
     )
     @Builder.Default
     private List<User> enrolledUsers = new ArrayList<>();
